@@ -1,0 +1,61 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    app.file_uploader:
+        class: Zoom\DoualaBundle\Services\Uploader
+        arguments: ['%files_directory%']
+
+    app.form.layoutErrorForm:
+        class: Zoom\DoualaBundle\Form\layoutErrorForm
+        arguments: ["@translator.default"]
+        tags:
+            - { name: form.type }
+
+    app.form.rechercheActiviteShowForm:
+        class: Zoom\DoualaBundle\Form\rechercheActiviteShowForm
+        arguments: ["@translator.default"]
+        tags:
+            - { name: form.type }
+
+    app.form.rechercheRubriqueShowForm:
+        class: Zoom\DoualaBundle\Form\rechercheRubriqueShowForm
+        arguments: ["@translator.default"]
+        tags:
+            - { name: form.type }
+
+    app.form.rechercheQuartierShowForm:
+        class: Zoom\DoualaBundle\Form\rechercheQuartierShowForm
+        arguments: ["@translator.default"]
+        tags:
+            - { name: form.type }
+
+    app.form.contactEntrepriseAjouterForm:
+        class: Zoom\DoualaBundle\Form\contactEntrepriseAjouterForm
+        arguments: ["@translator.default"]
+        tags:
+            - { name: form.type }
+
+    app.form.contactEntrepriseModifierForm:
+        class: Zoom\DoualaBundle\Form\contactEntrepriseModifierForm
+        arguments: ["@translator.default"]
+        tags:
+            - { name: form.type }
+    
+    app.form.activiteForm:
+        class: Zoom\DoualaBundle\Form\ActiviteForm
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type }
+
+    sendmail:
+        class: Zoom\DoualaBundle\Model\sendmail
+        arguments: [mailer, templating]
+
+    zoom_user.registration_success:
+        class: Zoom\UserBundle\EventListener\RegistrationCompletedListener
+        autowire: true
+        tags:
+            - { name: kernel.event_subscriber }

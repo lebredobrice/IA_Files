@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: 3306
+    database_name: abidjanzoom_doualazomdb
+    database_user: abidjanzoom_dzoom
+    database_password: YdQ=oESbhfI3
+    mailer_transport: smtp
+    mailer_host: mail.doualazoom.com
+    mailer_user: mailuser@doualazoom.com
+    mailer_password: _W-M,Pge(oRe
+    mailer_port: 465
+    mailer_encryption: ssl
+    secret: ThisTokenIsNotSoSecretChangeIteIt

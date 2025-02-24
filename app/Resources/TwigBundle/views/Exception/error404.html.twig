@@ -1,0 +1,16 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'ZoomDoualaBundle::layout_pages.html.twig' %}
+
+{% block title %}{%trans%}Page not found{%endtrans%}{% endblock %}
+
+{% block content %}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+    <p>
+        {%trans%}The requested page couldn't be located. Checkout for any URL misspelling or{%endtrans%} 
+		<a href="{{ path('zoom_douala_home') }}">{%trans%}return to the homepage{%endtrans%}</a>.
+    </p>
+	<p>
+	<img align='left' src="{{asset('bundles/zoomdouala/images/404.png')}}">
+	</p>
+{% endblock %}

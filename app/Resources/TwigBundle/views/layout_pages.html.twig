@@ -1,0 +1,487 @@
+﻿<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+<title>{% block title %}Douala Zoom {% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="{{ asset('bundles/zoomdouala/css/main.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/zoomdouala/css/donation.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/zoomdouala/css/topmenu.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/zoomdouala/js/logoslider/style.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/zoomdouala/css/infinite-rotator.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/zoomdouala/css/infinite-rotator02.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/zoomdouala/css/infinite-rotator03.css') }}" type="text/css" media="all" />
+<link rel="icon" type="image/gif" href="{{  asset('bundles/zoomdouala/images/smalllogo.gif') }}" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="{{ asset('bundles/zoomdouala/js/jquery.ui.core.js') }}"></script>
+	<script src="{{ asset('bundles/zoomdouala/js/jquery.ui.widget.js') }}"></script>
+	<script src="{{ asset('bundles/zoomdouala/js/jquery.ui.position.js') }}"></script>
+	<script src="{{ asset('bundles/zoomdouala/js/jquery.ui.menu.js') }}"></script>
+	<script src="{{ asset('bundles/zoomdouala/js/infinite-rotator.js') }}"></script>
+	<script src="{{ asset('bundles/zoomdouala/js/infinite-rotator02.js') }}"></script>
+	<script src="{{ asset('bundles/zoomdouala/js/infinite-rotator03.js') }}"></script>
+	<link rel="stylesheet" href="{{ asset('bundles/zoomdouala/css/jquery.ui.all.css') }}">
+	<script type="text/javascript">
+		var widgetId01;
+		var widgetId02;
+		var onloadCallback = function() { 
+			widgetId01 = grecaptcha.render('recaptcha01', {'sitekey' : '6LfSw3IUAAAAANR1RZer5ks2vNmSK9RHwvleygEr'});
+			widgetId02 = grecaptcha.render('recaptcha02', {'sitekey' : '6LfSw3IUAAAAANR1RZer5ks2vNmSK9RHwvleygEr'});
+		};
+	</script>
+</head>
+<body>
+<div id="page">
+  <!-- top menu -->
+  {{ render(controller('ZoomDoualaBundle:Show:layout_top_menu')) }}
+<div id="header_contenair" class="header_contenair_accueil">
+    <div class="header_logo">
+	{% for langue in ['fr','en','cn','es','ar'] %}
+	{% if app.request.locale == langue %}
+	<a href="{{ path('zoom_douala_home') }}" title="{%trans%}Home{%endtrans%}">
+		<img align='left' src="{{ asset('bundles/zoomdouala/images/logo_'~langue~'.gif') }}" />
+	</a>
+	{% endif %}
+	{% endfor %}
+		<span style="font-size:10px">
+			{{ render(controller('ZoomDoualaBundle:Show:layoutSidelinksMenu')) }}
+		</span>
+    </div>
+	<div class="header_PubTopCenter_et_MenuAlphabet_container">
+        <div class="header_pubTopCenter_container">
+		    <!-- publicités top -->
+			<div class="header_pubTopCenter_01">
+				<div id="rotating-item-wrapper">
+        			{{ render(controller('ZoomDoualaBundle:Show:pub', {'adtype': 1})) }}
+				</div>
+			</div>
+			<!-- fin publicités top -->
+			<div class="header_pubTopCenter_02">
+			    &nbsp;
+		    </div>
+		</div>
+	    <div class="menu_alphabetique">
+			<div class="div_layout_searchzone_sous_container01_title">{%trans%}Alphabetical search{%endtrans%}</div>
+		    <ul id="menu">
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'A' }) }}">A</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'B' }) }}">B</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'C' }) }}">C</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'D' }) }}">D</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'E' }) }}">E</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'F' }) }}">F</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'G' }) }}">G</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'H' }) }}">H</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'I' }) }}">I</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'J' }) }}">J</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'K' }) }}">K</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'L' }) }}">L</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'M' }) }}">M</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'N' }) }}">N</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'O' }) }}">O</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'P' }) }}">P</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'Q' }) }}">Q</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'R' }) }}">R</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'S' }) }}">S</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'T' }) }}">T</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'U' }) }}">U</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'V' }) }}">V</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'W' }) }}">W</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'X' }) }}">X</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'Y' }) }}">Y</a></li>
+    		    <li><a href="{{ path('zoom_douala_show_alpha', {'from01':'activite', 'alphaChoisie': 'Z' }) }}">Z</a></li>
+		   </ul>
+	    </div>	
+    </div>   
+	<div id="pub_topRight" class="pub_topRight">
+        <div>
+			{% for langue in ['fr','en','cn', 'es', 'ar'] %}
+			{% if app.request.locale == langue %}
+			<a href="{{path('store_showcase')}}" title="{%trans%}Your ad on this site{%endtrans%}">
+				<img align='left' src="{{ asset('bundles/zoomdouala/images/adads/'~langue~'.png') }}" />
+			</a>
+			{% endif %}
+		{% endfor %}
+		</div>
+		<div>&nbsp;</div>
+		<div class="div_toplinkmenu_separator">&nbsp;</div>
+		<div>&nbsp;</div>
+		<div>
+			{{ render(controller('ZoomDoualaBundle:Show:layoutDonationMenu')) }}
+		</div>
+    </div>
+
+	<!-- zone des formulaires de recherche ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+	<div class="div_layout_searchzone_container">
+		<div class="leftspace01">
+			&nbsp;
+		</div>
+				<!-- Recherchez une entreprise par index ( nom) ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    	<div class="div_layout_searchzone_sous_container01">
+			<div class="div_layout_searchzone_sous_container01_title">
+				{%trans%}Find a company by index{%endtrans%}
+			</div>
+            <div class="div_layout_searchzone_sous_container01_input">
+				<div class="div_layoutsearch_form"> 
+				<!-- le seul formulaire parmi les 3 à être rendu avec le showController. Son javascript se trouve dans 
+layout_search_by_name_form.html.twig -->
+				    {{ render(controller('ZoomDoualaBundle:Show:layout_search_by_name')) }}
+				</div>
+            </div> 
+	</div>
+</div>
+<!-- Fin Recherchez une entreprise par index ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+				
+				<!-- Listbox de recherchez une entreprise par rubrique ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    	<div class="div_layout_searchzone_sous_container02">
+			<div class="div_layout_searchzone_sous_container01_title">
+				&nbsp;{%trans%}Search in the sections{%endtrans%} (<span id="rubriqueTotal">0</span>)
+			</div>
+			<div class="div_layout_searchzone_sous_container02_input" id="listBoxRubriques_show">
+			<form id = "rubriquesForm">
+			<select id="select_rubrique"  onchange="gotourl_rubrique()">
+				<option>{%trans%}loading{%endtrans%}...</option>
+			</select>
+			</form>
+			<script>
+				 function animFormAccueil12()
+				 {
+					document.getElementById("animFormAccueil_12").style.display = "inline";
+					document.getElementById("animFormAccueil_12").style.marginTop = "2px";
+					document.getElementById("animFormAccueil_12").style.marginLeft = "2px";
+				}				 
+			 </script>
+			</div>
+<script>
+
+function listBoxRubriques(){  
+	valeurAsauter = "{%trans%}Choose a topic{%endtrans%} ...";
+    xhr_listBoxRubriques = new XMLHttpRequest();
+	xhr_listBoxRubriques.open("POST", "{{asset('bundles/zoomdouala/ajax/rubriquesRead.php')}}", true);  
+    xhr_listBoxRubriques.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    xhr_listBoxRubriques.onreadystatechange = function() 
+	{ 
+	    if(xhr_listBoxRubriques.readyState == 4)
+		{   
+	        if(xhr_listBoxRubriques.status == 200) 
+		    {
+			    // document.getElementById('animAjax01').innerHTML ="";
+			    var dataArray = xhr_listBoxRubriques.responseText.split("||");
+// alert(dataArray);
+				var total = dataArray.length - 1;
+			    if(dataArray.length>0) // il ya des rubriques
+				{
+				    listeRubriquesHtml = "<option class='activite_rubriques' value=\'"+id+"\'>{%trans%}select{%endtrans%}...</option>";
+				    for( i = 0; i < total; i++ ){ // 
+				        var thedata = dataArray[i].split("|");
+						if((thedata[1]).trim() != valeurAsauter)
+						{
+							var id = thedata[0];
+							var rubrique = thedata[1];
+							listeRubriquesHtml = listeRubriquesHtml + "<option class='activite_rubriques' value=\'"+id+"\'>"+rubrique+"</option>";
+						}
+					}
+					document.getElementById('listBoxRubriques_show').innerHTML =  "<form id = 'rubriquesForm'><select class='select_rubriques_loaded' id='select_rubrique' onchange='gotourl_rubrique()'>"+listeRubriquesHtml+"</select><img id='animFormAccueil_12' src='{{asset('bundles/zoomdouala/images/animFormAccueil.gif')}}'></form>";
+				    liste_rubriques = document.getElementById('rubriques'); 
+					//show total
+					document.getElementById('rubriqueTotal').innerHTML = total;
+				}
+			}           
+		}
+    }
+	var local = "{{ app.request.locale }}";
+	xhr_listBoxRubriques.send("sitelocal="+local);
+}
+
+listBoxRubriques();
+
+var lisboxrubrique = document.getElementById("select_rubrique");
+lisboxrubrique.addEventListener("change", gotourl_rubrique, false);
+	// nom de la rubrique
+function gotourl_rubrique()
+{	// nom de la rubrique
+	animFormAccueil12();  // animation du bouton
+	var url = "";
+	var x = document.getElementById("select_rubrique").selectedIndex;
+	var y = document.getElementById("select_rubrique").options;
+	var rubrique = y[x].text;
+	var rubriqueId = x;
+	// Page de destination
+	// on suprime un éventuelle slash à la fin de l'adresse
+	var thelocation = location.pathname;
+	var adresseToSplit = thelocation.replace(/\/$/, ""); 
+	// on suprime ce /web/ et eventuellement /doualazoom/ quand on est en local
+	adresseToSplit = adresseToSplit.substring(adresseToSplit.indexOf("/web/") + 1);
+//alert(adresseToSplit);
+	var adresseTab = adresseToSplit.split("/"); // la table des elements de l'adresse sans le http://
+	var adresseTab_lenght = adresseTab.length; 
+//alert(adresseTab_lenght);
+	// calcul d saut à utiliser
+	if(adresseTab_lenght == 12)
+	{
+		saut = "/../../../../../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 11)
+	{
+		saut = "/../../../../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 10)
+	{
+		saut = "/../../../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 9)
+	{
+		saut = "/../../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 8)
+	{
+		saut = "/../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 7)
+	{
+		saut = "/../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 6)
+	{
+		saut = "/../../../../.."; 
+	}
+	else if(adresseTab_lenght == 5)
+	{
+		saut = "/../../../.."; 
+	}
+	else if(adresseTab_lenght == 4)
+	{
+		saut = "/../../..";
+	}
+	
+	// le lien vers la page d'affichage de la rubrique
+
+	if(rubrique &&  rubrique != "{%trans%}Not{%endtrans%}")
+	{
+		saut = saut.substring(saut.indexOf("/..") + 1);
+
+		var adresse = window.location.toString().replace(location.search, ""); // on évite un eventuel query string dans l'adresse
+		var from01 = "recherche";
+		var from02 = "rubrique";
+		if(location.hostname === "localhost" || location.hostname === "127.0.0.1"){
+			url = adresse+saut+"/{{ app.request.locale }}/"+from01+"/"+from02+"/"+rubrique+"/"+rubriqueId;
+		}
+		else{
+			url = adresse+'/'+saut+"/{{ app.request.locale }}/"+from01+"/"+from02+"/"+rubrique+"/"+rubriqueId;
+		}
+		window.open( url, "_self");
+	}
+	else
+	{
+		alert("{%trans%}Please enter a section first{%endtrans%}");
+	}
+}
+
+</script>	
+</div> 	
+<!-- fin Listbox rubrique ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+		  	
+					<!-- --------------------  Listbox de recherchez une entreprise par quartier ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+		<div class="div_layout_searchzone_sous_container03">
+			<div class="div_layout_searchzone_sous_container01_title">
+				&nbsp;{%trans%}Search by district{%endtrans%} (<span id="quarttierTotal">0</span>)
+			</div>
+			<div class="div_layout_searchzone_sous_container02_input" id="listBoxQuartiers_show">
+			<form id = "quartiersForm">
+			<select id="select_quartier"  onchange="gotourl_quartier()">
+				<option>{%trans%}loading{%endtrans%}...</option>
+			</select>
+			</form>
+				<script>
+				 function animFormAccueil13()
+				 {
+					document.getElementById("animFormAccueil_13").style.display = "inline";
+					document.getElementById("animFormAccueil_13").style.marginTop = "2px";
+					document.getElementById("animFormAccueil_13").style.marginLeft = "2px";
+				}
+				</script>				
+		</div>
+<script>
+				
+function listBoxQuartiers()
+{   
+	valeurAsauter = "{%trans%}Select a district{%endtrans%}...";
+	var url = "";
+    xhr_listBoxQuartiers = new XMLHttpRequest();
+	xhr_listBoxQuartiers.open("POST", "{{asset('bundles/zoomdouala/ajax/quartiersRead.php')}}", true);
+    xhr_listBoxQuartiers.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+	// animation
+	//document.getElementById('animAjax01').innerHTML="<img width='20px' height='20px' src='{{asset('bundles/zoomdouala/images/anim01.gif')}}'>"; 
+    xhr_listBoxQuartiers.onreadystatechange = function() 
+	{ 
+	    if(xhr_listBoxQuartiers.readyState == 4)
+		{   
+	        if(xhr_listBoxQuartiers.status == 200) 
+		    {
+			    // document.getElementById('animAjax01').innerHTML ="";
+			    var dataArray = xhr_listBoxQuartiers.responseText.split("||");
+//alert(dataArray);
+			    if(dataArray.length>0) // il ya des quartiers
+				{
+				    listeQuartiersHtml = "<option class='activite_quartiers' value=\'"+id+"\'>{%trans%}select{%endtrans%}...</option>";
+					var total = 0;
+				    for(i = 0; i < dataArray.length - 1; i++) // 
+			        {  
+						var thedata = dataArray[i].split("|");
+						if((thedata[1]).trim() != valeurAsauter)
+						{
+//alert(thedata[1]);
+							var id = thedata[0];
+							var quartier = thedata[1];
+							listeQuartiersHtml = listeQuartiersHtml + "<option class='activite_quartiers' value=\'"+id+"\'>"+quartier+"</option>";
+						}
+					}
+					total = i;
+					document.getElementById('listBoxQuartiers_show').innerHTML =  "<form id = 'quartiersForm'><select class='select_quartiers_loaded' id='select_quartier' onchange='gotourl_quartier()'>"+listeQuartiersHtml+"</select><img id='animFormAccueil_13' src='{{asset('bundles/zoomdouala/images/animFormAccueil.gif')}}'> </form>";
+				    liste_quartiers = document.getElementById('quartiers'); 
+					document.getElementById('quarttierTotal').innerHTML = total; 
+				}
+			}           
+		}
+    }
+	xhr_listBoxQuartiers.send();
+}
+listBoxQuartiers();
+
+var lisboxquartier = document.getElementById("select_quartier");
+lisboxquartier.addEventListener("change", gotourl_quartier, false);
+function gotourl_quartier()
+{	// nom du quartier
+	animFormAccueil13(); // animation du bouton
+	var x = document.getElementById("select_quartier").selectedIndex; 
+	var y = document.getElementById("select_quartier").options;	
+	var quartier = y[x].text;
+	//saut
+	// Page de destination
+	// on suprime un éventuelle slash à la fin de l'adresse
+	var thelocation = location.pathname;
+	var adresseToSplit = thelocation.replace(/\/$/, ""); 
+	// on suprime ce /web/ et eventuellement /doualazoom/ quand on est en local
+	adresseToSplit = adresseToSplit.substring(adresseToSplit.indexOf("/web/") + 1);
+//alert(adresseToSplit);
+	var adresseTab = adresseToSplit.split("/"); // la table des elements de l'adresse sans le http://
+	var adresseTab_lenght = adresseTab.length; 
+//alert(adresseTab_lenght);
+	// calcul d saut à utiliser
+	if(adresseTab_lenght == 12)
+	{
+		saut = "/../../../../../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 11)
+	{
+		saut = "/../../../../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 10)
+	{
+		saut = "/../../../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 9)
+	{
+		saut = "/../../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 8)
+	{
+		saut = "/../../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 7)
+	{
+		saut = "/../../../../../.."; 
+	}
+	else if(adresseTab_lenght == 6)
+	{
+		saut = "/../../../../.."; 
+	}
+	else if(adresseTab_lenght == 5)
+	{
+		saut = "/../../../.."; 
+	}
+	else if(adresseTab_lenght == 4)
+	{
+		saut = "/../../..";
+	}
+	
+	// le lien vers la page d'affichage de la rubrique
+	if(quartier && quartier != "Aucun")
+	{
+		saut = saut.substring(saut.indexOf("/..") + 1); 
+
+		var adresse = window.location.toString().replace(location.search, ""); // on évite un eventuel query string dans l'adresse
+		var from01 = "recherche";
+		var from02 = "quartier";
+		var quartierChoisie = quartier;
+		if(location.hostname === "localhost" || location.hostname === "127.0.0.1"){
+			url = adresse+saut+"/{{ app.request.locale }}/"+from01+"/"+from02+"/"+quartierChoisie;
+		}
+		else{
+			url = adresse+'/'+saut+"/{{ app.request.locale }}/"+from01+"/"+from02+"/"+quartierChoisie;
+		}
+		
+		window.open( url, "_self");
+	}
+	else
+	{
+		alert("saisissze d'abord un quartier svp")
+	}				 			
+}
+var lisboxrubrique = document.getElementById("quartier");
+</script>	
+	
+<!-- FIN Listbox de recherchez une entreprise par quartier ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+			</div><div class="div_finheader">&nbsp;</div>
+		</div>
+	</div>
+<!-- Fin zone formulairesd de recherche -->
+
+</div>
+</div> 
+<!-- fin header -->
+
+<!-- content -->
+<div id="content">
+    <div id="content_container" class="content_container">
+       <!-- <div class="menu_left_container" id="menu_left_container"> 
+            	<a href="{{ path('zoom_douala_home') }}" title="MTN">
+				<img align='left' src="{{ asset('bundles/zoomdouala/images/ban01.jpg') }}" />
+				</a> 
+        </div>
+		-->
+		<div class="content">
+		    <h1>{{ block('title') }}</h1>
+	        {% block content %}
+            {% endblock %} 
+	    </div>
+		
+		<!-- publicités right -->
+		{{ render(controller('ZoomDoualaBundle:Show:pub', {'adtype': 2})) }}
+		<!-- fin publicités right -->
+    </div>
+</div>  
+
+<!-- fin content -->
+{{ render(controller('ZoomDoualaBundle:Show:contactFooter')) }}
+
+<!-- fixed ad div (see elements in carre.html.twig)-->
+<script>
+var $l = jQuery.noConflict(); 
+var pubsidebar = $l('.pubsidebar').offset().top;
+
+var blueOffset = $l('.div_contacteznous_container').offset().top;
+var sidebarHeight = $l('.pubsidebar').height();
+// If you reached the blue div (div_contacteznous_container), remove the 'fixed' class. Because the fixed element may not scroll over the footer or blue div. If you scroll back to the top (before the blue div or between the pubsidebar and the blue div) the fixed class need to be added again.
+$l(window).scroll(function() {
+//	alert('bar');
+	if ($l(window).scrollTop() > pubsidebar) {
+		$l('.pubsidebar').addClass('fixed');
+	} else {
+		$l('.pubsidebar').removeClass('fixed');
+	}
+	if ($l(window).scrollTop() > blueOffset - sidebarHeight) {
+		$l('.pubsidebar').removeClass('fixed');
+	}
+});
+</script>
+</body>
+</html>
